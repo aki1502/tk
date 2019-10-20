@@ -81,8 +81,8 @@ DATABASES = {
         'ENGINE': 'django.db.backends.sqlite3',
         'NAME': "djangogirls",
         "USER": "aki1502",
-        "PASSWORD": "admindayo",
-        "HOST": "aki1502.tk",
+        "PASSWORD": "",
+        "HOST": "localhost",
         "PORT": "",
     }
 }
@@ -130,3 +130,5 @@ if True:
 
 
 LOGIN_REDIRECT_URL = "/"
+
+DATABASE_NAME = os.path.join(os.path.dirname(__file__),"db","xxx.db")
