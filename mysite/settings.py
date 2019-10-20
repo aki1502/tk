@@ -82,7 +82,7 @@ DATABASES = {
         'NAME': "djangogirls",
         "USER": "aki1502",
         "PASSWORD": "admindayo",
-        "HOST": "localhost",
+        "HOST": "aki1502.tk",
         "PORT": "",
     }
 }
