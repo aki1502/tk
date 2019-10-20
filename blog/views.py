@@ -9,6 +9,7 @@ from .forms import PostForm, CommentForm
 if False:
     Post.objects = None
 
+"""
 def post_list(request):
     posts = Post.objects.filter(published_date__lte=timezone.now()).order_by("-published_date")
     d = {
@@ -90,3 +91,4 @@ def comment_remove(request, pk):
     comment = get_object_or_404(Comment, pk=pk)
     comment.remove()
     return redirect("post_detail", pk=comment.post.pk)
+"""
