@@ -131,4 +131,4 @@ if True:
 
 LOGIN_REDIRECT_URL = "/"
 
-DATABASE_NAME = os.path.join(os.path.dirname(__file__),"db","xxx.db")
+DATABASE_NAME = os.path.join(os.path.dirname(__file__),"db","db.sqlite3")
