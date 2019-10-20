@@ -81,7 +81,7 @@ DATABASES = {
         'ENGINE': 'django.db.backends.sqlite3',
         'NAME': "djangogirls",
         "USER": "aki1502",
-        "PASSWORD": "",
+        "PASSWORD": "admindayo",
         "HOST": "localhost",
         "PORT": "",
     }
