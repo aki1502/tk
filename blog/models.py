@@ -17,12 +17,12 @@ class Post(models.Model):
     def approved_comments(self):
         return self.comments.filter(approved_comment=True)
 
-    def publish(self):
-        self.published_date = timezone.now()
-        self.save()
-
     def like(self):
         self.number_of_like += 1
+        self.save()
+
+    def publish(self):
+        self.published_date = timezone.now()
         self.save()
 
     def __str__(self):
