@@ -1,0 +1,24 @@
+body {
+    background-color: slategray;
+}
+
+h1 {
+    color: whitesmoke;
+    font-family: "Lobster", cursive;
+    font-size: 65pt;
+}
+
+a, h2 {
+    color: aliceblue;
+    font-family: "Lobster", cursive;
+    font-size: 45pt;
+}
+
+p {
+    color: whitesmoke;
+    font-family: "Noto+Serif+JP";
+}
+
+img {
+    padding: 5% 5% 5% 5%;
+}

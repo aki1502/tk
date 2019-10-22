@@ -1,0 +1,57 @@
+body {
+    background-color: slategray;
+    padding: 10px 10px 20px 40px;
+}
+
+a h2, p a {
+    color: orange;
+}
+
+p {
+    color: aliceblue;
+}
+
+.header {
+    float: both;
+    overflow: auto;
+}
+
+h1 {
+    color: orange;
+    font-size: 55pt;
+    font-family: "Lobster", cursive;
+    float: left;
+}
+
+.kakugen {
+    color: aliceblue;
+    font-family: "Lobster", cursive;
+    float: right;
+    padding: 500px, 500px, 500px, 500px;
+}
+
+.akeet_column {
+    width: 70%;
+    float: left;
+    clear: both;
+}
+
+.timeline_column {
+    width: 70%;
+    float: left;
+}
+
+.user_column {
+    width: 30%;
+    float: right;
+}
+
+.post-form textarea, .post-form input {
+    width: 72%;
+    color: black;
+}
+
+.middle {
+    width: 100%;
+    float: none;
+}

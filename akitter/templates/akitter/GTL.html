@@ -1,0 +1,25 @@
+{% extends 'akitter/base.html' %}
+
+{% block body %}
+<div class="akeet_column">
+    <form method="POST" class="post-form">{% csrf_token %}
+        {{ akeet_form.as_p }}
+        <button type="submit" class="save btn btn-default"><span class="glyphicon glyphicon-send" aria-hidden="true"></span></button>
+    </form>
+</div>
+<div class="user_column">
+    {% if user.is_authenticated %}
+        <p align="center">Hello, {{ user.username }}</p>
+        <p align="center">(<a href="{% url 'signout' %}">Sign Out</a>)</p>
+    {% else %}
+        <p align="center">(<a href="{% url 'signin' %}">Sign In</a>) (<a href="{% url 'signup' %}">Sign Up</a>)</p>
+    {% endif %}
+</div>
+<div class="timeline_column">
+    {% for akeet in akeets %}
+        <div class="akeet">
+            <p>{{ akeet.author }}: {{ akeet.text|linebreaksbr }} | {{ akeet.published_date }}</p>
+        </div>
+    {% endfor %}
+</div>
+{% endblock body %}

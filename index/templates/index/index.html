@@ -1,0 +1,25 @@
+{% extends 'template.html' %}
+
+{% block head %}
+    {% load static %}
+    <link rel="stylesheet" href="//maxcdn.bootstrapcdn.com/bootstrap/3.2.0/css/bootstrap.min.css">
+    <link rel="stylesheet" href="//maxcdn.bootstrapcdn.com/bootstrap/3.2.0/css/bootstrap-theme.min.css">
+    <link href="//fonts.googleapis.com/css?family=Lobster&subset=latin,latin-ext" rel="stylesheet" type="text/css">
+    <link href="//fonts.googleapis.com/css?family=Noto+Serif+JP&display=swap" rel="stylesheet">
+    <link rel="stylesheet" href="{% static "css/index.css"%}">
+{% endblock head %}
+
+{% block title %}
+    Enter Page
+{% endblock title %}
+
+{% block body %}
+    <div class="bodyparts">
+        <h1 align="center">Welcome</h1>
+        <h3><p align="center">aki1502のページへようこそ</p><h3>
+        <img src="/media/images/zebra.png" width="100%" height="100%" border="0" />
+        <h2 align="center"><a href="{% url 'post_list' %}">Blog</a> <a href="{% url 'global_timeline' %}">Akitter</a></h2>
+        <hr>
+        <p align="center">Copyright aki1502 All rights reserved.</p>
+    </div>
+{% endblock body %}
