@@ -2,10 +2,11 @@
 
 {% block body %}
 <div class="akeet_column">
-    <form method="POST" class="post-form">{% csrf_token %}
-        {{ akeet_form.as_p }}
-        <button type="submit" class="save btn btn-default"><span class="glyphicon glyphicon-send" aria-hidden="true"></span></button>
-    </form>
+    <h2>使い方</h2>
+    <ul>
+        <li>ログインすると呟くことができます。</li>
+        <li>一回の発言につき31文字までの制限があります。</li>
+    </ul>
 </div>
 <div class="user_column">
     {% if user.is_authenticated %}
@@ -16,11 +17,5 @@
     {% endif %}
     <p align="center">(<a href="{% url 'how_to_use_akitter' %}">How To Use</a>)</p>
 </div>
-<div class="timeline_column">
-    {% for akeet in akeets %}
-        <div class="akeet">
-            <p>{{ akeet.author }}: {{ akeet.text|linebreaksbr }} | {{ akeet.published_date }}</p>
-        </div>
-    {% endfor %}
-</div>
-{% endblock body %}
+{% endblock body %}
+

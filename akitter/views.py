@@ -46,3 +46,7 @@ class SignUpView(CreateView):
         login(self.request, user)
         self.object = user
         return redirect(self.success_url)
+
+
+def how_to_use(request):
+    return render(request, "akitter/how_to_use.html")

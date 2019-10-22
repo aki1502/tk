@@ -11,4 +11,5 @@ urlpatterns = [
     path("signup/", views.SignUpView.as_view(), name="signup"),
     path("signin/", LoginView.as_view(template_name="registration/signin.html"), name="signin"),
     path("signout/", LogoutView.as_view(next_page="global_timeline"), name="signout"),
+    path("howtouse/", views.how_to_use, name="how_to_use_akitter")
 ]
