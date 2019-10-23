@@ -16,11 +16,10 @@
     {% endif %}
     <p align="center">(<a href="{% url 'how_to_use_akitter' %}">How To Use</a>)</p>
 </div>
-<div class="timeline_column">
-    {% for akeet in akeets %}
-        <div class="akeet">
-            <p>{{ akeet.author }}: {{ akeet.text|linebreaksbr }} | {{ akeet.published_date }}</p>
-        </div>
-    {% endfor %}
+<div id="iframeBlock">
+<div class="iframeBody">
+<iframe id="timeline_frame" src="{% url 'timeline_frame' %}" class="timeline_column">
 </div>
+</div>
+</iframe>
 {% endblock body %}

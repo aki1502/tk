@@ -1,9 +1,9 @@
 from django.contrib.auth import login
 from django.contrib.auth.forms import UserCreationForm
 from django.shortcuts import render, redirect
+from django.utils import timezone
 from django.views import View
 from django.views.generic.edit import CreateView
-from django.utils import timezone
 
 from .models import Akeet
 from .forms import AkeetForm
@@ -16,14 +16,12 @@ if False:
 class GlobalTimeLine(View):
     def get(self, request, *args, **kwargs):
         d = {
-            "akeets": Akeet.objects.all().order_by("-published_date")[:100],
             "akeet_form": AkeetForm()
         }
         return render(request, "akitter/GTL.html", d)
 
     def post(self, request, *args, **kwargs):
         d = {
-            "akeets": Akeet.objects.all().order_by("-published_date")[:100],
             "akeet_form": AkeetForm(request.POST),
         }
         if d["akeet_form"].is_valid():
@@ -35,6 +33,12 @@ class GlobalTimeLine(View):
                 return redirect("global_timeline")
         return render(request, "akitter/GTL.html", d)
 
+class TimeLineFrameView(View):
+    def get(self, request, *args, **kwargs):
+        d = {
+            "akeets": Akeet.objects.all().order_by("-published_date")[:100],
+        }
+        return render(request, "akitter/timeline_frame.html", d)
 
 class SignUpView(CreateView):
     form_class = UserCreationForm
