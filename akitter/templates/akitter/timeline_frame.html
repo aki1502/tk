@@ -11,10 +11,11 @@
         <title>Akitter</title>
     </head>
     <body>
+        
         {% for akeet in akeets %}
-            <div>
-                <p>{{ akeet.author }}: {{ akeet.text }} | {{ akeet.published_date }}</p>
-            </div>
+            <article>
+                <p>{{ akeet.author }}: {{ akeet.text }} | <time>{{ akeet.published_date }}</time></p>
+            </article>
         {% endfor %}
     </body>
 </html>

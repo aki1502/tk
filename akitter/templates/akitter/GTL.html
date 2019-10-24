@@ -3,8 +3,10 @@
 {% block body %}
 <div class="akeet_column">
     <form method="POST" class="post-form">{% csrf_token %}
-        {{ akeet_form.as_p }}
         <button type="submit" class="save btn btn-default"><span class="glyphicon glyphicon-send" aria-hidden="true"></span></button>
+        <dev class="akeet_form">
+            {{ akeet_form.text }}
+        </dev>
     </form>
 </div>
 <div class="user_column">
@@ -16,10 +18,6 @@
     {% endif %}
     <p align="center">(<a href="{% url 'how_to_use_akitter' %}">How To Use</a>)</p>
 </div>
-<div id="iframeBlock">
-<div class="iframeBody">
 <iframe id="timeline_frame" src="{% url 'timeline_frame' %}" class="timeline_column">
-</div>
-</div>
 </iframe>
 {% endblock body %}
