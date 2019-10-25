@@ -12,7 +12,7 @@
     </head>
     <body>
         {% for akeet in akeets %}
-            <article>
+            <article class="phone_article">
                 <p>{{ akeet.author }}: {{ akeet.text }} | <time>{{ akeet.published_date }}</time></p>
             </article>
         {% endfor %}

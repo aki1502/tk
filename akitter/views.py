@@ -40,6 +40,13 @@ class TimeLineFrameView(View):
         }
         return render(request, "akitter/timeline_frame.html", d)
 
+class PhoneTimeLineFrameView(View):
+    def get(self, request, *args, **kwargs):
+        d = {
+            "akeets": Akeet.objects.all().order_by("-published_date")[:100],
+        }
+        return render(request, "akitter/phone_timeline_frame.html", d)
+
 class SignUpView(CreateView):
     form_class = UserCreationForm
     template_name = "registration/signup.html"
