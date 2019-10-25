@@ -1,6 +1,6 @@
 {% extends 'akitter/base.html' %}
 
-{% block body %}
+{% block pc_area %}
 <div class="akeet_column">
     <form method="POST" class="post-form">{% csrf_token %}
         <button type="submit" class="save btn btn-default"><span class="glyphicon glyphicon-send" aria-hidden="true"></span></button>
@@ -20,4 +20,19 @@
 </div>
 <iframe id="timeline_frame" src="{% url 'timeline_frame' %}" class="timeline_column">
 </iframe>
-{% endblock body %}
+{% endblock pc_area %}
+
+{% block phone_area %}
+<div class="phone_akeet_low">
+    <form method="POST" class="post-form">{% csrf_token %}
+        <dev class="akeet_button">
+            <button type="submit" class="save btn btn-default"><span class="glyphicon glyphicon-send" aria-hidden="true"></span></button>
+        </dev>
+        <dev class="akeet_form">
+            {{ akeet_form.text }}
+        </dev>
+    </form>
+</div>
+<iframe id="timeline_frame" src="{% url 'timeline_frame' %}" class="timeline_low">
+</iframe>
+{% endblock phone_area %}

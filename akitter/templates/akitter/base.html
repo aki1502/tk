@@ -1,8 +1,10 @@
 <!DOCTYPE html>
 {% load static %}
+
 <html lang="ja">
     <head>
         <meta charset="UTF-8">
+        <meta name-"viewport" content="width=device-width">
         <link rel="stylesheet" href="//maxcdn.bootstrapcdn.com/bootstrap/3.2.0/css/bootstrap.min.css">
         <link rel="stylesheet" href="//maxcdn.bootstrapcdn.com/bootstrap/3.2.0/css/bootstrap-theme.min.css">
         <link href="//fonts.googleapis.com/css?family=Lobster&subset=latin,latin-ext" rel="stylesheet" type="text/css">
@@ -12,16 +14,32 @@
         <title>Akitter</title>
     </head>
     <body>
-        <div class="header">
-            <a href="{% url 'global_timeline' %}"><h1>Akitter</h1></a>
-            <div class="kakugen">
-                <h3><br></h3>
-                <a href="{% url 'index' %}"><h2>Every panda has his day.</h2></a>
+        <div class="pc_area">
+            <div class="header">
+                <a href="{% url 'global_timeline' %}"><h1>Akitter</h1></a>
+                <div class="kakugen">
+                    <h3><br></h3>
+                    <a href="{% url 'index' %}"><h2>Every panda has his day.</h2></a>
+                </div>
+            </div>
+            <div class="middle">
+                {% block pc_area %}
+                {% endblock pc_area %}
             </div>
         </div>
-        <div class="middle">
-            {% block body %}
-            {% endblock body %}
+        <div class="phone_area">
+            <div class="phone_header">
+                <a href="{% url 'global_timeline' %}"><h1>Akitter</h1></a>
+                {% if user.is_authenticated %}
+                    <p align="right">Hello, {{ user.username }}<br>
+                    (<a href="{% url 'signout' %}">Sign Out</a>)</p>
+                {% else %}
+                    <p align="right">(<a href="{% url 'signin' %}">Sign In</a>)<br>
+                    (<a href="{% url 'signup' %}">Sign Up</a>)</p>
+                {% endif %}
+            </div>
+            {% block phone_area %}
+            {% endblock phone_area %}
         </div>
     </body>
 </html>

@@ -1,6 +1,35 @@
+.pc_area {
+    display: block;
+}
+
+.phone_area {
+    display: none;
+}
+
+@media screen and (max-width: 768px) {
+    .pc_area {
+        display: none;
+    }
+    .phone_area {
+        display: block;
+    }
+}
+
+html {
+    height: 100%;
+}
+
 body {
     background-color: slategray;
+    height: 100%;
+}
+
+.pc_area{
     padding: 10px 10px 20px 40px;
+}
+
+.phone_area {
+    height: 100%;
 }
 
 a h2, p a {
@@ -16,11 +45,35 @@ p {
     overflow: auto;
 }
 
-h1 {
+.pc_area h1 {
     color: orange;
     font-size: 55pt;
     font-family: "Lobster", cursive;
     float: left;
+}
+
+.phone_area h1 {
+    color: orange;
+    font-size: 40pt;
+    font-family: "Lobster", cursive;
+    padding: 0px 0px 0px 20px;
+    float: left;
+}
+
+.phone_header p {
+    float: right;
+    padding: 35px 20px 0px 0px;
+}
+
+.akeet_button {
+    clear: both;
+    float: right;
+    padding: 0px 5px 0px 0px;
+}
+
+.phone_akeet_low .post-form textarea, .phone_akeet_low .post-form input {
+    width: 235%;
+    color: black;
 }
 
 .kakugen {
@@ -56,11 +109,19 @@ h1 {
     float: none;
 }
 
-iframe{
+.timeline_column {
     border:none;
     width:100%;
     height:1050px;
     padding:0;
+    margin:0;
+}
+
+.timeline_low {
+    border: none;
+    width:98%;
+    height: 82%;
+    padding:0px 0px 0px 10px;
     margin:0;
 }
 
@@ -71,4 +132,18 @@ iframe{
 
 .save {
     float: left;
+}
+
+.auth_form {
+    font-size: 13pt;
+    clear: both;
+    padding: 20px 20px 20px 20px;
+}
+
+.auth_form textarea, .auth_form input{
+    width: 100%
+}
+
+.sign {
+    float: right;
 }
