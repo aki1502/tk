@@ -2,7 +2,7 @@ from django.conf import settings
 from django.contrib.auth import login
 from django.contrib.auth.models import AnonymousUser, User
 from django.contrib.auth.forms import UserCreationForm
-from django.db.models import Prefetch
+from django.db.models import Prefetch, Q
 from django.shortcuts import get_object_or_404, render, redirect
 from django.utils import timezone
 from django.views import View
@@ -155,11 +155,11 @@ class TimeLineView(View):
 
 class LocalTimeLineFrameView(View):
     def get(self, request, pk, *args, **kwargs):
-        queryset = Following.objects.select_related("follower").filter(pk=pk)
-        prefetch = Prefetch("followed_set", queryset=queryset)
-        authors = User.objects.prefetch_related(prefetch)
+        queryset = Following.objects.select_related("follower").filter(follower__pk=pk)
+        prefetch = Prefetch("followed", queryset=queryset)
+        authors = User.objects.prefetch_related(prefetch).filter(Q(followed__in=queryset) | Q(pk=pk))
         d = {
-            "akeets": Akeet.objects.filter(author__in=authors).order_by("-published_date")[:100],
+            "akeets": Akeet.objects.select_related("author").filter(author__in=authors).order_by("-published_date")[:100],
         }
         return render(request, "akitter/timeline_frame.html", d)
 
@@ -168,7 +168,7 @@ class PhoneLocalTimeLineFrameView(View):
     def get(self, request, pk, *args, **kwargs):
         queryset = Following.objects.select_related("follower").filter(follower__pk=pk)
         prefetch = Prefetch("followed", queryset=queryset)
-        authors = User.objects.prefetch_related(prefetch).filter(followed__in=queryset)
+        authors = User.objects.prefetch_related(prefetch).filter(Q(followed__in=queryset) | Q(pk=pk))
         d = {
             "akeets": Akeet.objects.select_related("author").filter(author__in=authors).order_by("-published_date")[:100],
         }
