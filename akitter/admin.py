@@ -1,3 +1,9 @@
 from django.contrib import admin
 
-# Register your models here.
+from .models import Akeet, UserInfo, Following
+
+
+
+admin.site.register(Akeet)
+admin.site.register(UserInfo)
+admin.site.register(Following)

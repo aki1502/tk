@@ -26,6 +26,7 @@ body {
 
 .pc_area{
     padding: 10px 10px 20px 40px;
+    height: calc(100% - 200px);
 }
 
 .phone_area {
@@ -36,8 +37,23 @@ a h2, p a {
     color: orange;
 }
 
+article p a {
+    color: darkorange;
+}
+
 p {
     color: aliceblue;
+    font-size: 16pt;
+}
+
+.phone_area p {
+    color: aliceblue;
+    font-size: 25pt;
+}
+
+.phone_article p {
+    color: aliceblue;
+    font-size: 25pt;
 }
 
 .header {
@@ -70,12 +86,12 @@ p {
     size: 250%;
     clear: both;
     float: right;
-    padding: 0px 5px 0px 0px;
+    padding: 0px 6px 0px 0px;
 }
 
 .phone_akeet_low .post-form textarea, .phone_akeet_low .post-form input {
     font-size: 25pt;
-    width: 247%;
+    width: calc(270% - 83px);
     color: black;
 }
 
@@ -92,17 +108,14 @@ p {
     clear: both;
 }
 
-.timeline_column {
-    width: 70%;
-    float: left;
-}
-
 .user_column {
     width: 30%;
     float: right;
+    height: calc(100%);
 }
 
 .post-form textarea, .post-form input {
+    font-size: 16pt;
     width: 290%;
     color: black;
 }
@@ -110,12 +123,14 @@ p {
 .middle {
     width: 100%;
     float: none;
+    height: calc(100%);
 }
 
 .timeline_column {
+    float: left;
     border:none;
-    width:100%;
-    height:1050px;
+    width:70%;
+    height:1000px;
     padding:0;
     margin:0;
 }
@@ -123,9 +138,14 @@ p {
 .timeline_low {
     border: none;
     width:98%;
-    height: 85%;
+    height: calc(100% - 270px);
     padding:0px 0px 0px 10px;
-    margin:0;
+    margin: 10px;
+    clear: both;
+}
+
+article {
+    font-size: 16pt;
 }
 
 .phone_article {
@@ -145,18 +165,117 @@ p {
     font-size: 32pt;
     clear: both;
     padding: 20px 20px 20px 20px;
+    color: aliceblue;
 }
 
 .auth_form textarea, .auth_form input{
-    width: 100%
+    width: 100%;
+    color: black;
 }
 
 .sign {
     float: right;
+    font-size: 25pt;
+    font-family: "Lobster", cursive;
+}
+
+.sign input {
     color: orange;
 }
 
 .button_setting {
     font-size: 40pt;
     color: orange;
+}
+
+time {
+    color: lightsteelblue;
+}
+
+.thumbnail {
+    clear: both;
+    float: left;
+    background-color: rgba(0, 0, 0, 0);
+    margin: 0px 0px 10px 30px;
+}
+
+.pc_thumbnail {
+    float: left;
+    background-color: rgba(0, 0, 0, 0);
+    margin: 0px 0px 10px 30px;
+}
+
+.vios {
+    font-size: 25pt;
+    float: left;
+    overflow: hidden;
+    margin: 15px 0px 0px 30px;
+    width: calc(100% - 390px);
+}
+
+.pc_vios {
+    font-size: 16pt;
+    float: left;
+    overflow: hidden;
+    margin: 10px 0px 0px 30px;
+    width: calc(70% - 275px);
+}
+
+.pc_user_detail_button {
+    float: right;
+    font-family: "Lobster", cursive;
+    color: orange;
+    font-size: 16pt;
+    margin: 5px;
+}
+
+.user_detail_button {
+    float: right;
+    font-family: "Lobster", cursive;
+    color: orange;
+    font-size: 25pt;
+    margin: 5px;
+}
+
+.user_detail_button_off {
+    float: right;
+    font-family: "Lobster", cursive;
+    font-size: 25pt;
+    margin: 5px;
+}
+
+.vio_edit_form {
+    clear: both;
+    font-size: 25pt;
+    padding: 5px 20px;
+}
+
+.vio_edit_form textarea, .vio_edit_form input {
+    color: black;
+    width: 90%;
+}
+
+.pc_vio_edit_form {
+    clear: left;
+    font-size: 16pt;
+    width: 65%;
+}
+
+.pc_vio_edit_form textarea, .pc_vio_edit_form input {
+    color: black;
+    width: 700px;
+}
+
+.their_akeet_low {
+    width:98%;
+    padding:0px 0px 0px 10px;
+    margin: 10px;
+    clear: both;
+}
+
+.pc_their_akeet_low {
+    width:70%;
+    padding:35px 0px 0px 10px;
+    margin: 10px;
+    clear: left;
 }

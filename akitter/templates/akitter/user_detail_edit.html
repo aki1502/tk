@@ -1,0 +1,29 @@
+{% extends 'akitter/base.html' %}
+
+{% block pc_area %}
+<div class="user_column">
+    {% if user.is_authenticated %}
+        <p align="center">Hello, {{ user.username }}</p>
+        <p align="center">(<a href="{% url 'signout' %}">Sign Out</a>)</p>
+    {% else %}
+        <p align="center">(<a href="{% url 'signin' %}">Sign In</a>) (<a href="{% url 'signup' %}">Sign Up</a>)</p>
+    {% endif %}
+    <p align="center">(<a href="{% url 'how_to_use_akitter' %}">How To Use</a>)</p>
+</div>
+<div class="pc_vio_edit_form">
+    <form method="POST" enctype="multipart/form-data">{% csrf_token %}
+        <p>{{ userinfo_form.origin }}</p>
+        {{ userinfo_form.vio }}
+        <button type="submit" class="user_detail_button btn btn-default"><span class="glyphicon glyphicon-send" aria-hidden="true"></span></button>
+    </form>
+</div>
+{% endblock pc_area %}
+
+{% block phone_area %}
+<div class="vio_edit_form">
+    <form method="POST" enctype="multipart/form-data">{% csrf_token %}
+        {{ userinfo_form.as_p }}
+        <button type="submit" class="user_detail_button btn btn-default"><span class="glyphicon glyphicon-send" aria-hidden="true"></span></button>
+    </form>
+</div>
+{% endblock phone_area %}

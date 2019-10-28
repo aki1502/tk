@@ -30,8 +30,8 @@
         <div class="phone_area">
             <div class="phone_header">
                 <a href="{% url 'global_timeline' %}"><h1>Akitter</h1></a>
-                {% if user.is_authenticated %}
-                    <p align="right">Hello, {{ user.username }}<br>
+                {% if request.user.is_authenticated %}
+                    <p align="right">Hello, <a href="{% url 'user_detail' pk=request.user.id %}">{{ request.user.username }}</a><br>
                     (<a href="{% url 'signout' %}">Sign Out</a>)</p>
                 {% else %}
                     <p align="right">(<a href="{% url 'signin' %}">Sign In</a>)<br>

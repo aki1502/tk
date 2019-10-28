@@ -1,0 +1,70 @@
+{% extends "akitter/base.html" %}
+
+{% block pc_area %}
+<div class="user_column">
+    {% if request.user.is_authenticated %}
+        <p align="center">Hello, <a href="{% url 'user_detail' pk=request.user.pk %}">{{ user.username }}</a></p>
+        <p align="center">(<a href="{% url 'signout' %}">Sign Out</a>)</p>
+    {% else %}
+        <p align="center">(<a href="{% url 'signin' %}">Sign In</a>) (<a href="{% url 'signup' %}">Sign Up</a>)</p>
+    {% endif %}
+    <p align="center">(<a href="{% url 'how_to_use_akitter' %}">How To Use</a>)</p>
+</div>
+<img src="{{ user.info.image.url }}" width="200" height="200" class="pc_thumbnail" />
+<div class="pc_vios">
+    <p>username: {{ user.username }}</p>
+    <p>user_id: {{ user.pk }}</p>
+    <p>vio: {{ user.info.vio }}</p>
+</div>
+<div class="user_detail_button">
+    {% ifequal user request.user %}
+        <a href="{% url 'local_timeline' pk=user.pk %}" class="user_detail_button btn btn-default">TimeLine</a>
+        <a href="{% url 'edit_profile' pk=user.pk %}" class="user_detail_button btn btn-default">Edit</a>
+    {% else %}
+        {% if request.user.is_authenticated %}
+            {% if following %}
+                <a href="{% url 'follow' pk=user.pk %}" class="user_detail_button_off btn btn-default">Following</a>
+            {% else %}
+                <a href="{% url 'follow' pk=user.pk %}" class="user_detail_button btn btn-default">Follow</a>
+            {% endif %}
+        {% endif %}
+    {% endifequal %}
+</div>
+<div class="pc_their_akeet_low">
+    {% for akeet in akeets %}
+        <article class="article">
+            <p><a href="{% url 'user_detail' pk=akeet.author.pk %}" target="_parent" class="author">{{ akeet.author }}</a>: {{ akeet.text }} | <time>{{ akeet.published_date }}</time></p>
+        </article>
+    {% endfor %}
+</div>
+{% endblock pc_area %}
+
+{% block phone_area %}
+<img src="{{ user.info.image.url }}" width="300" height="300" class="thumbnail" />
+<div class="vios">
+    <p>username: {{ user.username }}</p>
+    <p>user_id: {{ user.pk }}</p>
+    <p>vio: {{ user.info.vio }}</p>
+</div>
+<div class="user_detail_button">
+    {% ifequal user request.user %}
+        <a href="{% url 'local_timeline' pk=user.pk %}" class="user_detail_button btn btn-default">TimeLine</a>
+        <a href="{% url 'edit_profile' pk=user.pk %}" class="user_detail_button btn btn-default">Edit</a>
+    {% else %}
+        {% if request.user.is_authenticated %}
+            {% if following %}
+                <a href="{% url 'follow' pk=user.pk %}" class="user_detail_button_off btn btn-default">Following</a>
+            {% else %}
+                <a href="{% url 'follow' pk=user.pk %}" class="user_detail_button btn btn-default">Follow</a>
+            {% endif %}
+        {% endif %}
+    {% endifequal %}
+</div>
+<div class="their_akeet_low">
+    {% for akeet in akeets %}
+        <article class="phone_article">
+            <p><a href="{% url 'user_detail' pk=akeet.author.pk %}" target="_parent" class="author">{{ akeet.author }}</a>: {{ akeet.text }} | <time>{{ akeet.published_date }}</time></p>
+        </article>
+    {% endfor %}
+</div>
+{% endblock phone_area %}

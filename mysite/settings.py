@@ -37,6 +37,7 @@ INSTALLED_APPS = [
     'django.contrib.sessions',
     'django.contrib.messages',
     'django.contrib.staticfiles',
+    "django_cleanup",
     "blog.apps.BlogConfig",
     "index.apps.IndexConfig",
     "akitter.apps.AkitterConfig",

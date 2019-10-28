@@ -1,6 +1,5 @@
 {% extends 'akitter/base.html' %}
 
-
 {% block pc_area %}
 <div class="akeet_column">
     <form method="POST" autocomplete="off" class="post-form">{% csrf_token %}
@@ -12,14 +11,14 @@
 </div>
 <div class="user_column">
     {% if user.is_authenticated %}
-        <p align="center">Hello, <a href="{% url 'user_detail' pk=request.user.id %}">{{ user.username }}</a></p>
+        <p align="center">Hello, {{ user.username }}</p>
         <p align="center">(<a href="{% url 'signout' %}">Sign Out</a>)</p>
     {% else %}
         <p align="center">(<a href="{% url 'signin' %}">Sign In</a>) (<a href="{% url 'signup' %}">Sign Up</a>)</p>
     {% endif %}
     <p align="center">(<a href="{% url 'how_to_use_akitter' %}">How To Use</a>)</p>
 </div>
-<iframe id="timeline_frame" src="{% url 'timeline_frame' %}" class="timeline_column">
+<iframe id="timeline_frame" src="{% url 'local_timeline_frame' pk=pk %}" class="timeline_column">
 </iframe>
 {% endblock pc_area %}
 
@@ -34,6 +33,6 @@
         </div>
     </form>
 </div>
-<iframe id="phone_timeline_frame" src="{% url 'phone_timeline_frame' %}" class="timeline_low">
+<iframe id="phone_timeline_frame" src="{% url 'phone_local_timeline_frame' pk=pk %}" class="timeline_low">
 </iframe>
 {% endblock phone_area %}
