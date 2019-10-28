@@ -11,7 +11,7 @@
 </div>
 <div class="user_column">
     {% if user.is_authenticated %}
-        <p align="center">Hello, {{ user.username }}</p>
+        <p align="center">Hello, <a href="{% url 'user_detail' pk=request.user.pk %}">{{ request.user.username }}</a></p>
         <p align="center">(<a href="{% url 'signout' %}">Sign Out</a>)</p>
     {% else %}
         <p align="center">(<a href="{% url 'signin' %}">Sign In</a>) (<a href="{% url 'signup' %}">Sign Up</a>)</p>
