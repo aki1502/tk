@@ -6,3 +6,4 @@ myvenv
 .DS_Store
 db.sqlite3
 .vscode
+media/CACHE
