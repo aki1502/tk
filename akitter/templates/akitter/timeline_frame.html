@@ -13,7 +13,7 @@
     <body>
         {% for akeet in akeets %}
             <article>
-                <p><a href="{% url 'user_detail' pk=akeet.author.pk %}" target="_parent" class="author">{{ akeet.author }}</a>: {{ akeet.text }} | <time>{{ akeet.published_date }}</time></p>
+                <p><img src="{{ akeet.author.info.image.url }}" width="40" height="40" /><a href="{% url 'user_detail' pk=akeet.author.pk %}" target="_parent" class="author">{{ akeet.author }}</a>: {{ akeet.text }} | <time>{{ akeet.published_date }}</time></p>
             </article>
         {% endfor %}
     </body>

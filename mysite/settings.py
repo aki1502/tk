@@ -23,7 +23,7 @@ BASE_DIR = os.path.dirname(os.path.dirname(os.path.abspath(__file__)))
 SECRET_KEY = '=kvldc_)um)qnby^f@6y+2!^8y^m&vnxemj!atgxylfoz59^fm'
 
 # SECURITY WARNING: don't run with debug turned on in production!
-DEBUG = False
+DEBUG = True
 
 ALLOWED_HOSTS = ["127.0.0.1", ".pythonanywhere.com", "www.aki1502.tk"]
 
@@ -61,7 +61,7 @@ TEMPLATES = [
         'DIRS': [
             os.path.join(BASE_DIR, "templates"),
         ],
-        'APP_DIRS': True,
+        'APP_DIRS': False,
         'OPTIONS': {
             'context_processors': [
                 'django.template.context_processors.debug',

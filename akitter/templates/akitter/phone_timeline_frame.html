@@ -16,7 +16,7 @@
         {% endfor %}
         {% for akeet in akeets %}
             <article class="phone_article">
-                <p><a href="{% url 'user_detail' pk=akeet.author.pk %}" target="_parent" class="author">{{ akeet.author }}</a>: {{ akeet.text }} | <time>{{ akeet.published_date }}</time></p>
+                <p><img src="{{ akeet.author.info.image.url }}" width="50" height="50" /><a href="{% url 'user_detail' pk=akeet.author.pk %}" target="_parent" class="author">{{ akeet.author }}</a>: {{ akeet.text }} | <time>{{ akeet.published_date }}</time></p>
             </article>
         {% endfor %}
     </body>
