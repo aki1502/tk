@@ -7,3 +7,4 @@ myvenv
 db.sqlite3
 .vscode
 media/CACHE
+mysite/settings.py
