@@ -5,6 +5,7 @@ from django.views.decorators.clickjacking import xframe_options_exempt
 from django.views.generic import TemplateView
 
 from . import views
+from .api import views as api_views
 
 
 
@@ -22,4 +23,5 @@ urlpatterns = [
     path("user/<int:pk>/timeline/", views.TimeLineView.as_view(), name="local_timeline"),
     path("user/<int:pk>/timeline_frame/", views.LocalTimeLineFrameView.as_view(), name="local_timeline_frame"),
     path("user/<int:pk>/phone_timeline_frame/", views.PhoneLocalTimeLineFrameView.as_view(), name="phone_local_timeline_frame"),
+    path("api/akeets/", api_views.AkeetListAPIView.as_view()),
 ]
