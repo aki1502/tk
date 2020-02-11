@@ -7,6 +7,7 @@ from imagekit.models import ImageSpecField
 from imagekit.processors import ResizeToFill
 
 
+
 class Akeet(models.Model):
     if False:
         childs = None
