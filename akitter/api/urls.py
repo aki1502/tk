@@ -8,4 +8,5 @@ urlpatterns = [
     path("akeets/", api_views.AkeetListCreateAPIView.as_view()),
     path("auth/", include("djoser.urls.authtoken")),
     path("register/", api_views.AccountCreateAPIView.as_view()),
+    path("userinfo/", api_views.UserInfoRetrieveAPIView.as_view()),
 ]
