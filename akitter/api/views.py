@@ -41,7 +41,7 @@ class AkeetListCreateAPIView(views.APIView):
 
     def get(self, request, *args, **kwargs):
         """Akeetの取得(一覧)"""
-        akeets = Akeet.objects.all()
+        akeets = Akeet.objects.all().order_by("-published_date")
         filterset = AkeetFilter(request.query_params, akeets)
         if not filterset.is_valid():
             raise ValidationError(filterset.errors)
